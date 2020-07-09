@@ -17,13 +17,15 @@ def pytra():
 @click.option('-t', '--translate_to', default='en')
 @click.argument('origin_text')
 def translate(translate_from, translate_to, origin_text):
-    translated_text = get_translated_text(
-        translate_from,
-        translate_to,
-        origin_text,
-    )
-
-    click.echo(translated_text)
+    try:
+        translated_text = get_translated_text(
+            translate_from,
+            translate_to,
+            origin_text,
+        )
+        click.echo(translated_text)
+    except ValueError as e:
+        click.echo(f'Got an exception: {e}')
 
 
 @pytra.command()
