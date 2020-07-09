@@ -11,3 +11,7 @@ def get_translated_text(trans_from, trans_to, origin_text):
         dest=trans_to,
     )
     return translated_obj.text
+
+
+def get_detected_language_obj(sentence):
+    return translator.detect(sentence)
