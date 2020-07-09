@@ -1,8 +1,6 @@
 import click
-from googletrans import Translator
 
-
-translator = Translator()
+from utils.translator import get_translated_text
 
 
 @click.command()
@@ -10,12 +8,11 @@ translator = Translator()
 @click.option('-t', '--translate_to', default='en')
 @click.argument('origin_text')
 def pytra(translate_from, translate_to, origin_text):
-    translated_obj = translator.translate(
-        text=origin_text,
-        origin=translate_from,
-        dest=translate_to,
+    translated_text = get_translated_text(
+        translate_from,
+        translate_to,
+        origin_text,
     )
-    translated_text = translated_obj.text
 
     click.echo(translated_text)
 
