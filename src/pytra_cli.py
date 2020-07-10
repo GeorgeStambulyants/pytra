@@ -11,7 +11,10 @@ from utils.constants import (
     TRANSLATE_TO_HELP,
     SHOW_LANGUAGE_CODES_HELP,
     TRANSLATE_HELP,
-    DETECT_HELP
+    DETECT_HELP,
+    OUTPUT_FILE_NAME_HELP,
+    TRANSLATE_FILE_COMMAND_HELP,
+    TRANSLATED_FILE_LANGUAGE_HELP,
 )
 
 
@@ -62,10 +65,17 @@ def show_language_codes(language):
             click.echo(f'{lang} -- "{code}"')
 
 
-@pytra.command()
+@pytra.command(help=TRANSLATE_FILE_COMMAND_HELP)
+@click.option('-o', '--output', default='output.txt', help=OUTPUT_FILE_NAME_HELP)
+@click.option('-t', '--translate-to', default='en', help=TRANSLATED_FILE_LANGUAGE_HELP)
 @click.argument('original_file')
-def translate_file(original_file):
-    create_translated_file(original_file)
+def translate_file(output, translate_to, original_file):
+    if not output.endswith('.txt'):
+        output += '.txt'
+    try:
+        create_translated_file(output, original_file, translate_to)
+    except FileNotFoundError as e:
+        click.echo(f'Got an exception: {e}')
 
 
 if __name__ == '__main__':

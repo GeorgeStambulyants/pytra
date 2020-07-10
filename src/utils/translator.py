@@ -17,9 +17,12 @@ def get_detected_language_obj(sentence):
     return translator.detect(sentence)
 
 
-def create_translated_file(file_to_translate):
-    with open('translated.txt', 'w') as translated_file:
+def create_translated_file(output_file_name, file_to_translate, translate_to):
+    with open(output_file_name, 'w') as translated_file:
         with open(file_to_translate, 'r') as original_file:
             for line in original_file:
-                translated_line = translator.translate(line).text
+                translated_line = translator.translate(
+                    text=line,
+                    dest=translate_to,
+                ).text
                 translated_file.write(translated_line + '\n')
