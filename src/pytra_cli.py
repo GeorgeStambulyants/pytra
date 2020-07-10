@@ -3,7 +3,8 @@ from googletrans import LANGCODES, LANGUAGES
 
 from utils.translator import (
     get_translated_text,
-    get_detected_language_obj
+    get_detected_language_obj,
+    create_translated_file,
 )
 from utils.constants import (
     TRANSLATE_FROM_HELP,
@@ -59,6 +60,12 @@ def show_language_codes(language):
     else:
         for (lang, code) in LANGCODES.items():
             click.echo(f'{lang} -- "{code}"')
+
+
+@pytra.command()
+@click.argument('original_file')
+def translate_file(original_file):
+    create_translated_file(original_file)
 
 
 if __name__ == '__main__':
