@@ -57,7 +57,8 @@ def show_language_codes(language):
         except KeyError:
             click.echo(f'Incorrect language')
     else:
-        click.echo('All of them')
+        for (lang, code) in LANGCODES.items():
+            click.echo(f'{lang} -- "{code}"')
 
 
 if __name__ == '__main__':
