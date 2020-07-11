@@ -11,7 +11,7 @@ from utils.translator import (
 from utils.constants import (
     TRANSLATE_FROM_HELP,
     TRANSLATE_TO_HELP,
-    SHOW_LANGUAGE_CODES_HELP,
+    SHOW_LANGUAGE_CODE_HELP,
     TRANSLATE_HELP,
     DETECT_HELP,
     OUTPUT_FILE_NAME_HELP,
@@ -55,9 +55,9 @@ def detect(sentence):
         )
 
 
-@pytra.command(help=SHOW_LANGUAGE_CODES_HELP)
+@pytra.command(help=SHOW_LANGUAGE_CODE_HELP)
 @click.argument('language', required=False)
-def show_language_codes(language):
+def show_language_code(language):
     if language:
         print_language_code(language)
     else:

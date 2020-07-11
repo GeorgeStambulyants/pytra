@@ -12,7 +12,7 @@ DETECT_FILE_COMMAND_HELP = '''
                               Detect file\'s language. 
                               Assuming that whole file is in single language.
                            '''
-SHOW_LANGUAGE_CODES_HELP = '''
+SHOW_LANGUAGE_CODE_HELP = '''
                               Show language codes. 
                               If language argument is provided
                               show only for provided language.
