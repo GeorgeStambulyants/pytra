@@ -2,7 +2,7 @@
 # Help messages for options
 TRANSLATE_FROM_HELP = 'Language code to translate from. Default: "auto".'
 TRANSLATE_TO_HELP = 'Language code to translate to. Default: "en".'
-OUTPUT_FILE_NAME_HELP = 'Specify output file name'
+OUTPUT_FILE_NAME_HELP = 'Specify output file name. Relative and absolute paths are allowed'
 TRANSLATED_FILE_LANGUAGE_HELP = 'Language code to translate to. Default: "en".'
 
 # Help messages for commands
