@@ -24,8 +24,8 @@ def pytra():
 
 
 @pytra.command(help=TRANSLATE_HELP)
-@click.option('-f', '--translate_from', default='auto', help=TRANSLATE_FROM_HELP)
-@click.option('-t', '--translate_to', default='en', help=TRANSLATE_TO_HELP)
+@click.option('-f', '--translate-from', default='auto', help=TRANSLATE_FROM_HELP)
+@click.option('-t', '--translate-to', default='en', help=TRANSLATE_TO_HELP)
 @click.argument('origin_text')
 def translate(translate_from, translate_to, origin_text):
     try:
