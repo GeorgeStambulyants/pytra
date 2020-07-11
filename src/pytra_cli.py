@@ -46,12 +46,13 @@ def translate(translate_from, translate_to, origin_text):
 @click.argument('sentence')
 def detect(sentence):
     detected_language_obj = get_detected_language_obj(sentence)
-    detected_language = detected_language_obj.lang
-    detected_language_confidence = detected_language_obj.confidence
-    click.echo(
-        f'"{LANGUAGES[detected_language].title()}" was detected with '
-        f'{detected_language_confidence} confidence'
-    )
+    if detected_language_obj:
+        detected_language = detected_language_obj.lang
+        detected_language_confidence = detected_language_obj.confidence
+        click.echo(
+            f'"{LANGUAGES[detected_language].title()}" was detected with '
+            f'{detected_language_confidence} confidence'
+        )
 
 
 @pytra.command(help=SHOW_LANGUAGE_CODES_HELP)

@@ -5,12 +5,14 @@ from .decorators import (
     check_file_exists,
     language_code_is_correct,
     language_name_is_correct,
+    check_internet_connection,
 )
 
 
 translator = Translator()
 
 
+@check_internet_connection
 @language_code_is_correct
 def get_translated_text(trans_from, trans_to, origin_text):
     translated_obj = translator.translate(
@@ -21,10 +23,13 @@ def get_translated_text(trans_from, trans_to, origin_text):
     return translated_obj.text
 
 
+@check_internet_connection
 def get_detected_language_obj(sentence):
-    return translator.detect(sentence)
+    detected_language_obj = translator.detect(sentence)
+    return detected_language_obj
 
 
+@check_internet_connection
 @language_code_is_correct
 @check_file_exists
 def create_translated_file(output_file_name, file_to_translate, translate_to):
@@ -38,6 +43,7 @@ def create_translated_file(output_file_name, file_to_translate, translate_to):
                 translated_file.write(translated_line + '\n')
 
 
+@check_internet_connection
 @check_file_exists
 def get_detected_file_language_obj(file):
     with open(file, 'r') as f:
