@@ -26,3 +26,10 @@ def create_translated_file(output_file_name, file_to_translate, translate_to):
                     dest=translate_to,
                 ).text
                 translated_file.write(translated_line + '\n')
+
+
+def get_detected_file_language_obj(file):
+    with open(file, 'r') as f:
+        first_line = f.readline()
+
+        return translator.detect(first_line)

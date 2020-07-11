@@ -8,6 +8,10 @@ TRANSLATED_FILE_LANGUAGE_HELP = 'Language code to translate to. Default: "en".'
 # Help messages for commands
 TRANSLATE_HELP = 'Translate stuff'
 DETECT_HELP = 'Detect languages'
+DETECT_FILE_COMMAND_HELP = '''
+                              Detect file\'s language. 
+                              Assuming that whole file is in single language.
+                           '''
 SHOW_LANGUAGE_CODES_HELP = '''
                               Show language codes. 
                               If language argument is provided

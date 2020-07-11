@@ -5,6 +5,7 @@ from utils.translator import (
     get_translated_text,
     get_detected_language_obj,
     create_translated_file,
+    get_detected_file_language_obj,
 )
 from utils.constants import (
     TRANSLATE_FROM_HELP,
@@ -15,6 +16,7 @@ from utils.constants import (
     OUTPUT_FILE_NAME_HELP,
     TRANSLATE_FILE_COMMAND_HELP,
     TRANSLATED_FILE_LANGUAGE_HELP,
+    DETECT_FILE_COMMAND_HELP,
 )
 
 
@@ -76,6 +78,15 @@ def translate_file(output, translate_to, original_file):
         create_translated_file(output, original_file, translate_to)
     except FileNotFoundError as e:
         click.echo(f'Got an exception: {e}')
+
+
+@pytra.command(help=DETECT_FILE_COMMAND_HELP)
+@click.argument('file')
+def detect_file(file):
+    detected_language_obj = get_detected_file_language_obj(file)
+    detected_language = LANGUAGES[detected_language_obj.lang].title()
+    confidence = detected_language_obj.confidence
+    click.echo(f'{detected_language} with {confidence} confidence')
 
 
 if __name__ == '__main__':
