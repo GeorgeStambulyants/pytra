@@ -1,11 +1,12 @@
 import click
-from googletrans import LANGCODES, LANGUAGES
+from googletrans import LANGUAGES
 
 from utils.translator import (
     get_translated_text,
     get_detected_language_obj,
     create_translated_file,
     get_detected_file_language_obj,
+    print_language_code,
 )
 from utils.constants import (
     TRANSLATE_FROM_HELP,
@@ -18,7 +19,9 @@ from utils.constants import (
     TRANSLATED_FILE_LANGUAGE_HELP,
     DETECT_FILE_COMMAND_HELP,
 )
-
+from utils.googletrans_helpers import (
+    print_all_language_codes,
+)
 
 @click.group()
 def pytra():
@@ -54,14 +57,9 @@ def detect(sentence):
 @click.argument('language', required=False)
 def show_language_codes(language):
     if language:
-        language = language.strip().lower()
-        try:
-            click.echo(f'{language} -- "{LANGCODES[language]}"')
-        except KeyError:
-            click.echo(f'Incorrect language')
+        print_language_code(language)
     else:
-        for (lang, code) in LANGCODES.items():
-            click.echo(f'{lang} -- "{code}"')
+        print_all_language_codes()
 
 
 @pytra.command(help=TRANSLATE_FILE_COMMAND_HELP)

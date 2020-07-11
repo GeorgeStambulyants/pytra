@@ -19,3 +19,13 @@ def language_code_is_correct(func):
             click.echo('Language code is not correct')
 
     return wrapper
+
+
+def language_name_is_correct(func):
+    def wrapper(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except KeyError:
+            click.echo('Language name is not correct')
+
+    return wrapper
