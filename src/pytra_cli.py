@@ -6,7 +6,6 @@ from utils.translator import (
     get_detected_language_obj,
     create_translated_file,
     get_detected_file_language_obj,
-    print_language_code,
 )
 from utils.constants import (
     TRANSLATE_FROM_HELP,
@@ -21,6 +20,7 @@ from utils.constants import (
 )
 from utils.googletrans_helpers import (
     print_all_language_codes,
+    print_language_code,
 )
 
 

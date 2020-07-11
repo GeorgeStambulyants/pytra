@@ -49,9 +49,3 @@ def get_detected_file_language_obj(file):
     with open(file, 'r') as f:
         first_line = f.readline()
         return translator.detect(first_line)
-
-
-@language_name_is_correct
-def print_language_code(language):
-    language = language.strip().lower()
-    click.echo(f'{language} -- "{LANGCODES[language]}"')
