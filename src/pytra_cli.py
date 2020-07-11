@@ -23,6 +23,7 @@ from utils.googletrans_helpers import (
     print_all_language_codes,
 )
 
+
 @click.group()
 def pytra():
     pass
