@@ -49,8 +49,3 @@ def get_detected_file_language_obj(file):
 def print_language_code(language):
     language = language.strip().lower()
     click.echo(f'{language} -- "{LANGCODES[language]}"')
-
-
-def print_all_language_codes():
-    for (lang, code) in LANGCODES.items():
-        click.echo(f'{lang} -- "{code}"')
