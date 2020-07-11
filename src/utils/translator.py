@@ -1,13 +1,15 @@
 from googletrans import Translator
 
-from utils.decorators import (
+from .decorators import (
     check_file_exists,
+    language_code_is_correct,
 )
 
 
 translator = Translator()
 
 
+@language_code_is_correct
 def get_translated_text(trans_from, trans_to, origin_text):
     translated_obj = translator.translate(
         text=origin_text,
@@ -21,6 +23,7 @@ def get_detected_language_obj(sentence):
     return translator.detect(sentence)
 
 
+@language_code_is_correct
 @check_file_exists
 def create_translated_file(output_file_name, file_to_translate, translate_to):
     with open(output_file_name, 'w') as translated_file:
