@@ -72,21 +72,20 @@ def show_language_codes(language):
 @click.option('-t', '--translate-to', default='en', help=TRANSLATED_FILE_LANGUAGE_HELP)
 @click.argument('original_file')
 def translate_file(output, translate_to, original_file):
-    if not output.endswith('.txt'):
-        output += '.txt'
-    try:
-        create_translated_file(output, original_file, translate_to)
-    except FileNotFoundError as e:
-        click.echo(f'Got an exception: {e}')
+    create_translated_file(output, original_file, translate_to)
 
 
 @pytra.command(help=DETECT_FILE_COMMAND_HELP)
 @click.argument('file')
 def detect_file(file):
     detected_language_obj = get_detected_file_language_obj(file)
-    detected_language = LANGUAGES[detected_language_obj.lang].title()
-    confidence = detected_language_obj.confidence
-    click.echo(f'{detected_language} with {confidence} confidence')
+
+    # If there was FileNotFoundError in the line before
+    # then detect_language_ob is None
+    if detected_language_obj:
+        detected_language = LANGUAGES[detected_language_obj.lang].title()
+        confidence = detected_language_obj.confidence
+        click.echo(f'{detected_language} with {confidence} confidence')
 
 
 if __name__ == '__main__':

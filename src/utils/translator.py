@@ -1,5 +1,9 @@
 from googletrans import Translator
 
+from utils.decorators import (
+    check_file_exists,
+)
+
 
 translator = Translator()
 
@@ -17,6 +21,7 @@ def get_detected_language_obj(sentence):
     return translator.detect(sentence)
 
 
+@check_file_exists
 def create_translated_file(output_file_name, file_to_translate, translate_to):
     with open(output_file_name, 'w') as translated_file:
         with open(file_to_translate, 'r') as original_file:
@@ -28,8 +33,8 @@ def create_translated_file(output_file_name, file_to_translate, translate_to):
                 translated_file.write(translated_line + '\n')
 
 
+@check_file_exists
 def get_detected_file_language_obj(file):
     with open(file, 'r') as f:
         first_line = f.readline()
-
         return translator.detect(first_line)
