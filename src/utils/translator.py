@@ -1,10 +1,8 @@
-import click
-from googletrans import Translator, LANGCODES
+from googletrans import Translator
 
 from .decorators import (
     check_file_exists,
     language_code_is_correct,
-    language_name_is_correct,
     check_internet_connection,
 )
 
