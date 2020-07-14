@@ -4,3 +4,8 @@
 # python stuff
 __pycache__/
 
+# pyinstaller output
+*.spec
+build/
+dist/
+
