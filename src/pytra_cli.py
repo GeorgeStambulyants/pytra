@@ -1,14 +1,14 @@
 import click
 from googletrans import LANGUAGES
 
-from .utils.translator import (
+from utils.translator import (
     get_translated_text,
     get_detected_language_obj,
     create_translated_file,
     get_detected_file_language_obj,
 )
 
-from .utils.constants import (
+from utils.constants import (
     TRANSLATE_FROM_HELP,
     TRANSLATE_TO_HELP,
     SHOW_LANGUAGE_CODE_HELP,
@@ -19,7 +19,7 @@ from .utils.constants import (
     TRANSLATED_FILE_LANGUAGE_HELP,
     DETECT_FILE_COMMAND_HELP,
 )
-from .utils.googletrans_helpers import (
+from utils.googletrans_helpers import (
     print_all_language_codes,
     print_language_code,
 )
