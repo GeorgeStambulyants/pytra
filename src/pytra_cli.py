@@ -1,3 +1,5 @@
+import sys
+
 import click
 from googletrans import LANGUAGES
 
@@ -6,6 +8,7 @@ from utils.translator import (
     get_detected_language_obj,
     create_translated_file,
     get_detected_file_language_obj,
+    translate_line
 )
 
 from utils.constants import (
@@ -25,9 +28,12 @@ from utils.googletrans_helpers import (
 )
 
 
-@click.group()
-def pytra():
-    pass
+@click.group(invoke_without_command=True)
+@click.pass_context
+def pytra(ctx):
+    if ctx.invoked_subcommand is None:
+        for line in sys.stdin:
+            print(translate_line(line + '\n'))
 
 
 @pytra.command(help=TRANSLATE_HELP)
