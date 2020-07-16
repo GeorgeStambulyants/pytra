@@ -1,5 +1,5 @@
 import pathlib
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 HERE = pathlib.Path(__file__).parent
@@ -13,7 +13,7 @@ setup(
     long_description=README,
     long_description_content_type='text/markdown',
     url='https://github.com/GeorgeStambulyants/pytra',
-    author='GeorgeStambulyants',
+    author='George Stambulyants',
     author_email='george.stamb16@gmail.com',
     license='MIT',
     classifiers=[
@@ -21,15 +21,16 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.7',
     ],
-    packeges=find_packages(),
+    packages=['src', 'src.utils'],
     include_package_data=True,
     install_requires=[
         'click',
         'googletrans',
     ],
     python_requires='>=3.7',
-    entry_points='''
-        [console_scripts]
-        pytra=src.pytra:pytra
-    '''
+    entry_points={
+        'console_scripts': [
+            'pytra=src.pytra:pytra',
+        ]
+    },
 )
