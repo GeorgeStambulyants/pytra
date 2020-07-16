@@ -6,6 +6,9 @@ __pycache__/
 
 # pyinstaller output
 *.spec
+
+# distribution / packaging
 build/
 dist/
+*.egg-info/
 
