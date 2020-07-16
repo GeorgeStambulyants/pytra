@@ -1,21 +1,10 @@
 import pathlib
-import io
-import os
 from setuptools import setup, find_packages
 
 
-
-HERE = pathlib.PATH(__file__).parent
+HERE = pathlib.Path(__file__).parent
 README = (HERE / 'README.md').read_text()
 
-with io.open(os.path.join(HERE, 'requirements.txt'), encoding='utf-8') as f:
-    all_reqs = f.read().split('\n')
-
-install_requires = [
-    req.strip() for req in all_reqs
-    if not req.startswith('#')
-    and not req.startswith('-')
-]
 
 setup(
     name='pytra',
