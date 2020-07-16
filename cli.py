@@ -1,4 +1,4 @@
-from src.pytra_cli import pytra
+from src.pytra import pytra
 
 
 if __name__ == '__main__':
