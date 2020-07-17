@@ -8,7 +8,7 @@ README = (HERE / 'README.md').read_text()
 
 setup(
     name='pytra',
-    version='0.1',
+    version='0.3',
     description='Simple command-line tool for translating',
     long_description=README,
     long_description_content_type='text/markdown',
