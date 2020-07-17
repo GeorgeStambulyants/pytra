@@ -6,7 +6,7 @@ pytra is capable of translating (and detecting the source language) words, sente
 
 ## Installation ##
 ### Using pip ###
-python>3.7 required:
+pytra can be easily installed with pip
 
      $ pip install pytra
 
