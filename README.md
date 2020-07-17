@@ -5,7 +5,10 @@ pytra is a simple command-line tool that translates stuff. It uses googletrans l
 pytra is capable of translating (and detecting the source language) words, sentences and even files.
 
 ## Installation ##
-Coming soon...
+### Using pip ###
+python>3.7 required:
+
+     $ pip install pytra
 
 ## Usage ##
 pytra is very easy to use. It has several subcommands:
@@ -15,7 +18,7 @@ pytra is very easy to use. It has several subcommands:
 * translate -- translate stuff
 * translate-file -- text file to translate
 
-Also soon pytra wiil be capable of pipelining
+Also soon pytra will be capable of pipelining
 
 You can use -h or --help option with each subcommand for more details as follows:
 
